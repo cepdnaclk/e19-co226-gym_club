@@ -133,3 +133,20 @@
    font-size: 20px;
    padding:10px;
 }
+
+.input-container {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 10px;
+ }
+
+ .row {
+   margin-bottom: 0; /* Reset the bottom margin */
+ }
+
+ .row::after {
+   content: "";
+   display: table;
+   clear: both;
+ }
+ 

@@ -9,6 +9,10 @@ if(isset($_POST['submit'])){
    $pass = md5($_POST['password']);
    $cpass = md5($_POST['cpassword']);
    $user_type = $_POST['user_type'];
+   $gender = $_POST['gender'];
+   $age = $_POST['age'];
+   $height = $_POST['height'];
+   $weight = $_POST['weight'];
 
    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
@@ -23,9 +27,9 @@ if(isset($_POST['submit'])){
       if($pass != $cpass){
          $error[] = 'password not matched!';
       }else{
-         $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
+         $insert = "INSERT INTO user_form(name, email, password, user_type, gender, age, height, weight) VALUES('$name','$email','$pass','$user_type','$gender','$age','$height','$weight')";
          mysqli_query($conn, $insert);
-         header('location:login_form.php');
+         header('location:index.php');
       }
    }
 
@@ -61,6 +65,17 @@ if(isset($_POST['submit'])){
       ?>
       <input type="text" name="name" required placeholder="enter your name">
       <input type="email" name="email" required placeholder="enter your email">
+      <div = class="row::after input-container","">
+         <select name="gender">
+            <option value="male">male</option>
+            <option value="female">female</option>
+         </select>
+         <input type="number" name="age" min="0" max="100" step="1" required placeholder="age" >
+      </div>
+      <div = class="row::after input-container"> 
+         <input type="number" name="height" min="0" max="100" step="any" required placeholder="height">
+         <input type="number" name="weight" min="0" max="100" step="any" required placeholder="weight">
+      </div>
       <input type="password" name="password" required placeholder="enter your password">
       <input type="password" name="cpassword" required placeholder="confirm your password">
       <select name="user_type">

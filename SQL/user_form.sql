@@ -28,7 +28,37 @@ CREATE TABLE IF NOT EXISTS `user_form` (
   `email` varchar(100) NOT NULL,
   `password` varchar(50) NOT NULL,
   `user_type` enum('user','admin') NOT NULL,
+  `gender` enum('male','female') NOT NULL,
+  `age` int(20) NOT NULL,
+  `height` int(20),
+  `weight` int(20),
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `trainer` (
+  `TrainerId` int(100) NOT NULL AUTO_INCREMENT,
+  `UserId` int(100) NOT NULL,
+  `TrainerType` enum('low_weght','high_weight','very_high_weight'),
+  PRIMARY KEY (`TrainerId`),
+  FOREIGN KEY (`UserId`) REFERENCES user_form (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `trainee` (
+  `TraineeId` int(100) NOT NULL AUTO_INCREMENT,
+  `UserId` int(100) NOT NULL,
+  `weight` int(100),
+  `height` int(100),
+  PRIMARY KEY (`TraineeId`),
+  FOREIGN KEY (`UserId`) REFERENCES user_form (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `trains` (
+  `RelId` int(100) NOT NULL AUTO_INCREMENT,
+  `TrainerId` int(100) NOT NULL,
+  `TraineeId` int(100) NOT NULL,
+  PRIMARY KEY (`RelId`),
+  FOREIGN KEY (`TrainerId`) REFERENCES trainer (`TrainerId`),
+  FOREIGN KEY (`TraineeId`) REFERENCES trainee (`TraineeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
