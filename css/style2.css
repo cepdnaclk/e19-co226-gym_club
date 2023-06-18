@@ -10,8 +10,36 @@
   text-decoration: none;
 }
 
+.container{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:20px;
+  padding-bottom: 60px;
+}
+
+
+
+
+
+body {
+  background-image: url("images/trainer.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+
+/* 
+
+
+/**end*/
+
 .container {
-  background-color: crimson;
+  background-color: rgba(220, 20, 60, 0);
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -26,7 +54,7 @@
 
 .container p {
   margin: 5px 0;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .container .action-btns {
@@ -46,18 +74,18 @@
   text-decoration: none;
 }
 
-.content {
+/* .content {
   text-align: center;
   padding: 20px;
   margin-top: 20px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 10px;
-}
+} */
 
 .content h3 {
   font-size: 30px;
-  color: #333;
+  color: #ffffff;
 }
 
 .content h3 span {
@@ -69,7 +97,7 @@
 
 .content h1 {
   font-size: 50px;
-  color: #333;
+  color: #ffffff;
 }
 
 .content h1 span {
@@ -92,5 +120,28 @@
 }
 
 .content .btn:hover {
-  background: crimson;
+  background: rgb(220, 20, 60);
 }
+
+/**responsible for get members and assign members*/
+.button-container {
+  margin-top: 2cm;
+  text-align: center;
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: crimson;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background-color: darkred;
+}
+/*end of block*/
