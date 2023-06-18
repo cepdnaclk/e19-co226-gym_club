@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
    <title>login form</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/login_style.css">
 
 </head>
 <body>
