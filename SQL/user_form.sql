@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `user_form` (
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `user_type` enum('user','trainer') NOT NULL,
+  `user_type` enum('user','admin') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
