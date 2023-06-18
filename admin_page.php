@@ -33,7 +33,14 @@ if(!isset($_SESSION['admin_name'])){
       <!-- <a href="login_form.php" class="btn">login</a>
       <a href="register_form.php" class="btn">register</a> -->
       <a href="logout.php" class="btn">logout</a>
-   </div>
+      <div class="button-container">
+         <a href="get_member.php" class="action-btn">GET MEMBER</a>
+         <a href="assign_member.php" class="action-btn">ASSIGNED MEMBER</a>
+         <!-- <button class="action-btn">GET MEMBER</button>
+         <button class="action-btn">ASSIGN MEMBER</button> -->
+      </div>
+
+
 
 </div>
 
