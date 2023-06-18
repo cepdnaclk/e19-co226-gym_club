@@ -1,0 +1,255 @@
+:root {
+  --orange: #fd9940;
+  --darkorange: #dd7d25;
+  --platinum: #e5e5e5;
+  --black: #2b2d42;
+  --white: #fff;
+  --thumb: #edf2f4;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font: 16px / 24px "Rubik", sans-serif;
+  color: var(--black);
+  background: var(--platinum);
+  margin: 50px 0;
+}
+
+.banner {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:20px;
+  padding-bottom: 60px;
+}
+
+.banner .content{
+  text-align: center;
+}
+
+.banner .content h3{
+  font-size: 30px;
+  color:#333;
+}
+
+.banner .content h3 span{
+  background: orange;
+  color:#fff;
+  border-radius: 5px;
+  padding:0 15px;
+}
+
+.banner .content h1{
+  font-size: 50px;
+  color:#333;
+}
+
+.banner .content h1 span{
+  color:orange;
+}
+
+.banner .content p{
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.banner .content h1,
+.banner .content p {
+  line-height: 1.5; /* adjust this value as needed to increase or decrease the spacing between lines */
+}
+
+.banner .content .btn{
+  display: inline-block;
+  padding:10px 30px;
+  font-size: 20px;
+  background: #333;
+  color:#fff;
+  margin:0 5px;
+  text-transform: capitalize;
+}
+
+.banner .content .btn:hover{
+  background: crimson;
+}
+
+/* -- USER_DETAILS -- */
+
+.UD_sect {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  /* height: 100vh; set the height of the container to the viewport height */
+}
+
+.user_details {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  min-width: 800px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+}
+
+.user_details .icon {
+  flex-shrink: 0;
+  background-color: #b3b3b3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.user_details .details {
+  padding: 20px;
+}
+
+.user_details .card-title {
+  margin-top: 0;
+}
+
+.user_details .details p {
+  margin: 10px 0;
+}
+
+/* -- CAROUSLE -- */
+
+.goal_carousel {
+  max-width: 1400px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.cards {
+  display: grid;
+  grid-auto-columns: calc(33.33%-20px);
+  grid-column-gap: 10px;
+  grid-auto-flow: column;
+  padding: 25px 0px;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  scroll-snap-align: start;
+  transition: all 0.2s;
+  width: 1000px; /* change this to adjust the width */
+  height: 250px; /* change this to adjust the height */
+}
+
+.card:hover {
+  color: var(--white);
+  background: var(--orange);
+}
+
+.card .card-title {
+  font-size: 20px;
+}
+
+.card .card-content {
+  margin: 20px 0;
+  max-width: 85%;
+  display: flex;
+  align-items: center;
+}
+.card-content .fas {
+  margin-right: 50px; /* Adjust the margin as needed */
+}
+
+.card .card-link-wrapper {
+  margin-top: auto;
+}
+
+.card .card-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: var(--orange);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.card:hover .card-link {
+  background: var(--darkorange);
+}
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: var(--darkorange);
+}
+
+.cards::-webkit-scrollbar-track {
+  background: var(--thumb);
+}
+
+/* - WO Session-*/
+
+.WO_Sect {
+  max-width: 1400px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.WOS_card ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.WOS_card li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.WOS_card ul li a {
+  display: block;
+  padding: 2px;
+  text-decoration: none;
+  border-radius: 5px;
+  /* background-color: #ccc; */
+  text-align: center;
+  color: #333;
+}
+
+.WOS_card ul li a:hover {
+  background-color: var(--darkorange);
+  color:#fff;
+}
+
+.WOS_card li:last-child {
+  border-bottom: none;
+}
