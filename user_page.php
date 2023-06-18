@@ -19,7 +19,7 @@ if(!isset($_SESSION['user_name'])){ //If the 'user_name' session variable is not
    <title>user page</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/style2.css">
 
 </head>
 <body>
@@ -27,11 +27,11 @@ if(!isset($_SESSION['user_name'])){ //If the 'user_name' session variable is not
 <div class="container">
 
    <div class="content">
-      <h3>hi, <span>user</span></h3>
+      <h3>Hi, <span>member</span></h3>
       <h1>welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
-      <p>this is an user page</p>
-      <a href="login_form.php" class="btn">login</a>
-      <a href="register_form.php" class="btn">register</a>
+      <p>this is a sample member page</p>
+      <!-- <a href="login_form.php" class="btn">login</a>
+      <a href="register_form.php" class="btn">register</a> -->
       <a href="logout.php" class="btn">logout</a>
    </div>
 

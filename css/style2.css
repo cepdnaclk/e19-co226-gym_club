@@ -1,34 +1,96 @@
-.banner {
-    background-color: #f44336;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
-  }
-  
-  .banner h1 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  .banner p {
-    margin: 5px 0;
-  }
-  
-  .banner .action-btns {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0;
-    text-align: center;
-  }
-  
-  .banner .action-btns li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .banner .action-btns li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+.container {
+  background-color: crimson;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px 10px 10px 10px; 
+  /* top left, top right, bottom left, bottom right; */
+}
+
+.container h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.container p {
+  margin: 5px 0;
+  color: black;
+}
+
+.container .action-btns {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.container .action-btns li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.container .action-btns li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.content {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.content h3 {
+  font-size: 30px;
+  color: #333;
+}
+
+.content h3 span {
+  background: crimson;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0 15px;
+}
+
+.content h1 {
+  font-size: 50px;
+  color: #333;
+}
+
+.content h1 span {
+  color: crimson;
+}
+
+.content p {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.content .btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 20px;
+  background: #333;
+  color: #fff;
+  margin: 0 5px;
+  text-transform: capitalize;
+}
+
+.content .btn:hover {
+  background: crimson;
+}
