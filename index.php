@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
          header('location:admin_page.php');
 
       }elseif($row['user_type'] == 'user'){
-
+         $_SESSION['user_id'] = $row['id']; // Store the user ID in the session.
          $_SESSION['user_name'] = $row['name'];
          header('location:landing.php');
 

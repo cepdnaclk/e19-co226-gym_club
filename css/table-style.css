@@ -1,0 +1,39 @@
+
+
+/* Reset some default table styles */
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  /* Apply styles to table header cells */
+  table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Apply alternating background colors to table rows */
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Apply styles to table data cells */
+  table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Hover effect on table rows */
+  table tr:hover {
+    background-color: #e6e6e6;
+  }
+  
+  /* Add a border to the last row */
+  table tr:last-child td {
+    border-bottom: 2px solid #ddd;
+  }
+  
