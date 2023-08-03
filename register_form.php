@@ -28,7 +28,21 @@ if(isset($_POST['submit'])){
          $error[] = 'password not matched!';
       }else{
          $insert = "INSERT INTO user_form(name, email, password, user_type, gender, age, height, weight) VALUES('$name','$email','$pass','$user_type','$gender','$age','$height','$weight')";
+
+           
+           
+
          mysqli_query($conn, $insert);
+
+         $id_query = "SELECT id FROM user_form WHERE name='$name'";
+         $id_result = mysqli_query($conn, $id_query);
+         $row = mysqli_fetch_assoc($id_result);
+         $insert_new = "INSERT INTO trainer(trainee_id) VALUES('" . $row['id'] . "')";
+         mysqli_query($conn, $insert_new);
+
+         $goal_entry = "INSERT INTO target(UId) VALUES('" . $row['id'] . "')";
+         mysqli_query($conn, $goal_entry);
+
          header('location:index.php');
       }
    }

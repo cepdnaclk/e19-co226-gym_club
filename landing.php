@@ -38,7 +38,7 @@ if (isset($_SESSION['id'])) {
 <div class="banner">
 
    <div class="content">
-      <h3>Hi, <span>member</span></h3>
+      <h3>Hi, <span>Buddy</span></h3>
       <h1>welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
       <h1>Id is <span><?php echo $_SESSION['user_id'] ?></span></h1>
       <p>this is a sample member page</p>
@@ -108,6 +108,10 @@ if (isset($_SESSION['id'])) {
           } else {
               // Handle the case when user details are not found in the database.
               // You can display default values or show an error message.
+              $goal_type = "Not yet selected";
+              $target_weight = "Not yet selected";
+              $target_bodyfat = "Not yet selected";
+              $target_calories = "Not yet selected";
           }
           
           ?>
