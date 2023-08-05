@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
 
     <section class="container">
         <div class="card">
-            <div class="card-image  card-1"></div>
+            <div class="card-image  card-4"></div>
             <h2>Strength Training</h2>
             <p>Unleash your inner strength with our Strength Training program. Build a foundation of power, agility, and muscle resilience. Whether you're a novice or a seasoned athlete, this program will empower you to conquer challenges and achieve peak performance.</p>
             <form action="" method="post">
@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
         <div class="card">
-            <div class="card-image card-2"></div>
+            <div class="card-image card-5"></div>
             <h2>Flexibility and Mobility</h2>
             <p>Discover the art of flexibility and mobility with our specialized program. Enhance your body's range of motion, release tension, and improve posture. Unwind and rejuvenate as you unlock newfound flexibility, contributing to your overall well-being.</p>
             <form action="" method="post">
@@ -110,7 +110,7 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
         <div class="card">
-            <div class="card-image card-3"></div>
+            <div class="card-image card-6"></div>
             <h2>Overall Wellness</h2>
             <p>Embrace holistic wellness with our comprehensive program designed to elevate every aspect of your life. Maintain your body's harmony, mental clarity, and emotional balance. Reap the rewards of vitality and enjoy a life of well-rounded health.</p>
             <form action="" method="post">

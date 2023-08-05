@@ -9,7 +9,6 @@ session_start();
 
 // Check if the user's ID and name are provided in the URL parameters
 if (isset($_GET['trainerId']) && isset($_GET['traineeId'])){
-    echo "hiii";
     $trainerId = $_GET['trainerId'];
     $traineeId = urldecode($_GET['traineeId']); // Decode the URL-encoded name
 
@@ -23,7 +22,6 @@ if (isset($_GET['trainerId']) && isset($_GET['traineeId'])){
 } else {
     // Handle the case when the user ID or name is not provided in the URL.
     // For example, you might redirect the user or show an error message.
-    echo "bye";
     header('login_form.php');
 }
 

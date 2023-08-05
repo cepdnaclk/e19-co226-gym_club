@@ -1,30 +1,29 @@
 /* Apply general reset and styling to links and buttons */
 a, button {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 15px;
-  }
-  
-  /* Style the default button appearance */
-  .btn {
-    background: #fbd0d9;
-    color:crimson;
-    text-transform: capitalize;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  /* On hover, change the background color and text color */
-  .btn:hover {
-    background: crimson;
-    color:#fff;
-  }
-  
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 15px;
+}
 
-  
+/* Style the default button appearance */
+.btn {
+  background: #fbd0d9;
+  color:crimson;
+  text-transform: capitalize;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* On hover, change the background color and text color */
+.btn:hover {
+  background: crimson;
+  color:#fff;
+}
+
+

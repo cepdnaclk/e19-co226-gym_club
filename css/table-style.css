@@ -8,7 +8,7 @@ table {
   
   /* Apply styles to table header cells */
   table th {
-    background-color: #f2f2f2;
+    background-image: linear-gradient(to right, #f5f7fad3, #b8c6dbc4);
     color: #333;
     font-weight: bold;
     text-align: left;
@@ -24,7 +24,7 @@ table {
   /* Apply styles to table data cells */
   table td {
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #F5F7FA;
   }
   
   /* Hover effect on table rows */

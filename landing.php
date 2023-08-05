@@ -33,6 +33,17 @@ if (isset($_SESSION['id'])) {
    <script src="https://kit.fontawesome.com/ce26a37708.js" crossorigin="anonymous"></script>
 
 </head>
+<style>
+      body {
+          background-image: linear-gradient(to right, #F5F7FA, #B8C6DB);
+          margin: 0;
+          padding: 0;
+          font-family: sans-serif;
+          color: #333;
+      }
+      /* Other CSS rules go here */
+   </style>
+
 <body>
    
 <div class="banner">
@@ -40,8 +51,7 @@ if (isset($_SESSION['id'])) {
    <div class="content">
       <h3>Hi, <span>Buddy</span></h3>
       <h1>welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
-      <h1>Id is <span><?php echo $_SESSION['user_id'] ?></span></h1>
-      <p>this is a sample member page</p>
+      <h2>Membership Number <span><?php echo $_SESSION['user_id'] ?></span></h2>
       <!-- <a href="login_form.php" class="btn">login</a>
       <a href="register_form.php" class="btn">register</a> -->
       <a href="logout.php" class="btn">
@@ -84,6 +94,9 @@ if (isset($_SESSION['id'])) {
         <p>Height: <?php echo $height; ?></p>
         <p>Weight: <?php echo $weight; ?></p>
     </div>
+    <div class="btn">
+        <a href="update_details.php?uid=<?php echo $_SESSION['user_id']; ?>" class="card-link">Update Details</a>
+      </div>
   </div>
 </div>
 

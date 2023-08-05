@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+.containar {
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #eeeeee;
+
+}
+
+/* Apply general reset and styling to links and buttons */
+a, button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* Style the default button appearance */
+.btn {
+    background: #fbd0d9;
+    color: crimson;
+    text-transform: capitalize;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* On hover, change the background color and text color */
+.btn:hover {
+    background: crimson;
+    color: #fff;
+}
+
+
+
+/* Rest of your existing styles */

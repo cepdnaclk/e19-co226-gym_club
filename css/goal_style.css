@@ -15,7 +15,7 @@ body{
 }
 
 .card{
-    background-color: aqua;
+    background-color: rgb(255, 255, 255);
     width: 400px;
     height: 400px;
     margin: 10px;
@@ -31,15 +31,27 @@ body{
 }
 
 .card-1 {
-    background-image: url("images/login.jpg");
+    background-image: url("images/muscle_gain.jpg");
 }
 
 .card-2 {
-    background-image: url("images/login.jpg");
+    background-image: url("images/weight_loss.jpg");
 }
 
 .card-3 {
-    background-image: url("images/login.jpg");
+    background-image: url("images/cardio.jpg");
+}
+
+.card-4 {
+    background-image: url("images/strength.jpg");
+}
+
+.card-5 {
+    background-image: url("images/flexibility.jpg");
+}
+
+.card-6 {
+    background-image: url("images/wellness.jpg");
 }
 
 .card p{

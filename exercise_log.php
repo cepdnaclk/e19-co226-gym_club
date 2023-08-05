@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_name'])) {
     exit; // Optional, to stop further execution.
 }
 
-// Assuming you have a valid session, retrieve the Uid from the URL parameter.
+// Assuming you have a valid session, retrieve the Uid from the URL parameter./
 if (isset($_GET['sessionId'])) {
     $sessionId = $_GET['sessionId'];
 
@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
     mysqli_query($conn, $insert);
 
     // Redirect after form submission
-    header('exercise_log.php'); // Replace 'index.php' with the appropriate page where you want to redirect after form submission.
+    header('location: exercise_log.php?sessionId=' . $sessionId); // Replace 'index.php' with the appropriate page where you want to redirect after form submission.
     //exit; // Optional, to stop further execution.
 }
 ?>
@@ -55,6 +55,7 @@ if (isset($_POST['submit'])) {
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style-exlog.css">
    <link rel="stylesheet" href="css/table-style.css">
+   <link rel="stylesheet" href="css/back-button.css">
 
 </head>
 <body>
@@ -80,6 +81,22 @@ if (isset($_POST['submit'])) {
    </form>
 
 </div>
+
+<!-- <div class="btn">
+   <a href="landing.php?sessionId=<?php echo $sessionId; ?>" class="form-btn">Back</a>
+</div> -->
+<div class="containar">
+   <a href="landing.php?sessionId=<?php echo $sessionId; ?>" class="form-btn btn">Back</a>
+</div>
+
+<!-- <div class="form-container">
+
+   <form action="" method="post">
+      <input type="submit" name="submit" value="Submit" class="form-btn">
+   </form>
+
+</div> -->
+
 
 <div class="workout-table">
       <table>
