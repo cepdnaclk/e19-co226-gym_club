@@ -1,14 +1,9 @@
+<?php session_start();
+@include 'config.php'; ?>
+
 <?php
 
-@include 'config.php';
-
-session_start();
-
-// $name = '';
-// $cpassword = '';
-// $user_type = '';
-
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
    //$name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -20,63 +15,100 @@ if(isset($_POST['submit'])){
 
    $result = mysqli_query($conn, $select);
 
-   if(mysqli_num_rows($result) > 0){
+   if (mysqli_num_rows($result) > 0) {
 
       $row = mysqli_fetch_array($result);
 
-      if($row['user_type'] == 'admin'){
+      if ($row['user_type'] == 'admin') {
 
          $_SESSION['admin_name'] = $row['name'];
-         $_SESSION['user_id'] = $row['id']; 
-         $_SESSION['user_type'] = $row['user_type']; 
+         $_SESSION['user_id'] = $row['id'];
+         $_SESSION['user_type'] = $row['user_type'];
          header('location:admin_page.php');
-
-      }elseif($row['user_type'] == 'user'){
+      } elseif ($row['user_type'] == 'user') {
          $_SESSION['user_id'] = $row['id']; // Store the user ID in the session.
          $_SESSION['user_name'] = $row['name'];
-         header('location:landing.php');
-
+         header('location:member_page.php');
       }
-     
-   }else{
+   } else {
       $error[] = 'incorrect email or password!';
    }
-
 };
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>login form</title>
+   <title>Log in</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/login_style.css">
+   <link rel="stylesheet" href="styles/login_style.css">
 
 </head>
+
+
 <body>
-   
-<div class="form-container">
+   <div class="backg">
+      <div id="card">
+         <div id="thumb"></div>
+         <div id="title">
+            <span class="main-let">G</span>ym<span class="main-let">C</span>lub
+         </div>
+      </div>
+   </div>
 
-   <form action="" method="post">
-      <h3>login now</h3>
-      <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
-         };
-      };
-      ?>
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
-      <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>don't have an account? <a href="register_form.php">register now</a></p>
-   </form>
+   <div id="mfollower"></div>
+   <div class="top">
+      <div class="form-container">
 
-</div>
+         <form action="" method="post">
+            <h3>
+               <span class="red-let">W</span>elcome
+            </h3>
+            <?php
+            if (isset($error)) {
+               foreach ($error as $error) {
+                  echo '<span class="error-msg">' . $error . '</span>';
+               };
+            };
+            ?>
+            <input type="email" name="email" required placeholder="enter your email">
+            <input type="password" name="password" required placeholder="enter your password">
+            <input type="submit" name="submit" value="login now" class="form-btn">
+            <p>Don't have an account yet? <a href="register_form.php">Create one.</a></p>
+         </form>
+
+      </div>
+   </div>
+
+
+   <script>
+      const mfl = document.getElementById("mfollower");
+      const test = document.getElementById("card");
+
+      document.addEventListener("mousemove", event => {
+         const {
+            pageX,
+            pageY
+         } = event;
+
+         var e = -(window.innerWidth / 2 - pageX) / 50,
+            n = -(window.innerHeight / 2 - pageY) / 150;
+
+         test.style.transform = 'rotateY(' + e + 'deg) rotateX(' + n + 'deg)';
+
+         mfl.animate({
+            left: `${pageX}px`,
+            top: `${pageY}px`
+         }, {
+            duration: 2000,
+            fill: "both"
+         });
+      });
+   </script>
 
 </body>
+
 </html>

@@ -21,7 +21,7 @@ if (isset($_GET['sessionId'])) {
 } else {
     // If the sessionId is not provided in the URL, you can redirect the user or show an error message.
     // Example:
-    header('location: landing.php');
+    header('location: member_page.php');
     exit; // Optional, to stop further execution.
 }
 
@@ -83,10 +83,10 @@ if (isset($_POST['submit'])) {
 </div>
 
 <!-- <div class="btn">
-   <a href="landing.php?sessionId=<?php echo $sessionId; ?>" class="form-btn">Back</a>
+   <a href="member_page.php?sessionId=<?php echo $sessionId; ?>" class="form-btn">Back</a>
 </div> -->
 <div class="containar">
-   <a href="landing.php?sessionId=<?php echo $sessionId; ?>" class="form-btn btn">Back</a>
+   <a href="member_page.php?sessionId=<?php echo $sessionId; ?>" class="form-btn btn">Back</a>
 </div>
 
 <!-- <div class="form-container">

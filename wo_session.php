@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     mysqli_query($conn, $insert);
 
     // Redirect after form submission
-    header('location:landing.php'); // Replace 'index.php' with the appropriate page where you want to redirect after form submission.
+    header('location:member_page.php'); // Replace 'index.php' with the appropriate page where you want to redirect after form submission.
     exit; // Optional, to stop further execution.
 }
 ?>
