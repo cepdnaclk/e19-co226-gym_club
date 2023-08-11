@@ -1,0 +1,209 @@
+$user_accent: orange !default;
+$dark_user_accent: darkorange !default;
+$background: rgb(30, 30, 30);
+$text-dark: black;
+$text-light: white;
+
+@import url("https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: $background;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    background-color: rgb(61, 61, 61);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    align-items: center;
+    box-shadow: 0 0 10px;
+
+    .navbar-logo {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        background-image: url("../images/gym_logo.png");
+        background-size: 10%;
+        background-position: 10px;
+        background-repeat: no-repeat;
+        height: 50px;
+    }
+
+    #log-out {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        text-decoration: none;
+        margin-right: 2%;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        color: crimson;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        font-size: 16px;
+        font-weight: bold;
+
+        &:hover {
+            background: crimson;
+            color: white;
+        }
+
+    }
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+
+    h3 {
+        color: #fff;
+        border-radius: 5px;
+        padding: 0 15px;
+        font-size: 30px;
+
+        .user_type {
+            background: $user_accent;
+            color: $background;
+            border-radius: 5px;
+            padding: 5px 15px;
+        }
+
+        .user_name {
+            color: $user_accent;
+        }
+    }
+}
+
+.UD_sect {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.user_details {
+    display: flex;
+    max-width: 600px;
+    min-width: 400px;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    .icon {
+        background-color: $user_accent;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100px;
+        height: 150px;
+        aspect-ratio: 1;
+        overflow: hidden;
+        caret-color: transparent;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+
+        .material-symbols-rounded {
+            font-variation-settings: 'FILL' 1;
+            font-size: 150px;
+            // translate: -25% -25%;
+        }
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        margin-left: 5%;
+        color: $text-dark;
+        font-size: 20px;
+        font-weight: bold;
+
+        span {
+            margin: 5px;
+        }
+    }
+}
+
+.ui-widget {
+    background-color: rgb(61, 61, 61);
+}
+
+.ui-dialog {
+    display: none;
+    border-radius: 20px;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+
+    .ui-dialog-titlebar {
+        border-radius: 10px;
+        margin: 5px;
+        margin-bottom: 0px !important;
+
+        .ui-dialog-titlebar-close{
+            display: none;
+        }
+    }
+
+    .ui-dialog-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        padding: 10px !important;
+    }
+
+    .ui-dialog-buttonpane {
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        border: 1px solid white;
+        background: $dark_user_accent !important;
+        color: black;
+        cursor: pointer;
+        font-weight: bold !important;
+
+        &:hover{
+            background: $user_accent !important;
+        }
+    }
+}
+
+.ui-widget-header {
+    color: white;
+    background: rgba($user_accent,0.5);
+    border: 0;
+}
+
+.custom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 999;
+}

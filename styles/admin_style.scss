@@ -1,0 +1,52 @@
+@use 'general_user_style' as * with ($user_accent: orange);
+
+.WO_Sect {
+
+    h2 {
+        color: $text-light;
+    }
+
+    span {
+        color: $text-light;
+    }
+
+    .a_rm_trainee,
+    .a_add_trainee {
+        color: orange;
+        cursor: pointer;
+    }
+
+    table {
+        color: $text-light;
+        border-collapse: collapse;
+        border-radius: 10px;
+        box-shadow: 0 0 0 1px white;
+        overflow: hidden;
+        table-layout: fixed;
+        margin-top: 10px;
+        width: 100%;
+        background-image: linear-gradient(to right, rgb(78, 78, 78), $background);
+
+        th,
+        td {
+            padding: 10px;
+            box-shadow: 0 0 0 0.5px white;
+
+
+        }
+
+        .warn {
+            color: orange;
+            text-align: center;
+        }
+
+        .data_row {
+            transition: background-color 0.5s ease;
+        }
+
+        .data_row:hover {
+            background-color: rgba(255, 166, 0, 0.4);
+        }
+
+    }
+}
