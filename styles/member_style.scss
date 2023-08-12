@@ -1,6 +1,10 @@
-@use 'general_user_style' as * with ($user_accent: crimson);
+@use 'general_user_style' as * with ($user_accent: rgb(147, 160, 237), $dark_user_accent: rgb(61, 82, 223));
 
-.WO_Sect {
+a {
+    text-decoration: none;
+}
+
+.WO_sect {
 
     h2 {
         color: $text-light;
@@ -8,12 +12,6 @@
 
     span {
         color: $text-light;
-    }
-
-    .a_rm_trainee,
-    .a_add_trainee {
-        color: orange;
-        cursor: pointer;
     }
 
     table {
@@ -36,7 +34,7 @@
         }
 
         .warn {
-            color: orange;
+            color: $user_accent;
             text-align: center;
         }
 
@@ -45,8 +43,211 @@
         }
 
         .data_row:hover {
-            background-color: rgba(255, 166, 0, 0.4);
+            background-color: rgba($user_accent, 0.4);
         }
 
     }
+}
+
+.SUB_sect {
+    flex-direction: column;
+
+    h2 {
+        color: white;
+        margin: 0;
+    }
+
+
+
+    #goal_card {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+
+        #goal_intro {
+            width: auto;
+            padding: 10px;
+            color: $user_accent;
+        }
+
+        .goal_details {
+            display: flex;
+            width: 800px;
+            align-items: center;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: 20px;
+            border: 3px solid $dark_user_accent;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                box-shadow: 0 5px 15px rgba($dark_user_accent, 0.5);
+                transform: scale(1.02);
+            }
+
+            #no-goal {
+                background: linear-gradient(to right, $user_accent, white);
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-items: center;
+                padding: 20px;
+                color: $dark_user_accent;
+                font-size: 20px;
+
+                .material-symbols-rounded {
+                    font-size: 50px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .image-container {
+                position: absolute;
+                height: 250px;
+                left: 0;
+                top: -10px;
+                align-items: center;
+
+                .image-wrapper {
+                    height: 250px;
+                    width: auto;
+                    background-color: aquamarine;
+                    filter: drop-shadow(10px -5px 10px $dark_user_accent);
+                    position: relative;
+                    left: 0;
+                    top: 0;
+
+                    img {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 350px;
+                        height: 250px;
+                        object-fit: cover;
+                        clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+                    }
+                }
+            }
+
+            .details {
+                color: $dark_user_accent;
+                left: 350px;
+                width: 100%;
+                margin-left: 20px;
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                .s-line-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+
+                .s-line {
+                    font-size: 16px;
+                    width: 100%;
+                    display: flex;
+                    margin: 10px;
+                    flex-direction: row;
+                    // justify-content: center;
+
+                    .s-line-val {
+                        margin-left: 20px;
+                        right: 10px;
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+
+.WOS_sect {
+    padding: 10px;
+
+    h2 {
+        color: $text-light;
+    }
+
+    span {
+        color: $text-light;
+    }
+
+    table {
+        color: $text-light;
+        border-collapse: collapse;
+        border-radius: 10px;
+        box-shadow: 0 0 0 1px white;
+        overflow: hidden;
+        table-layout: fixed;
+        margin-top: 20px;
+        width: 100%;
+        background-image: linear-gradient(to right, rgb(78, 78, 78), $background);
+
+        th,
+        td {
+            padding: 10px;
+            box-shadow: 0 0 0 0.5px white;
+
+
+        }
+
+        .wos-add {
+            background: rgba($dark_user_accent, 0.3);
+            color: $user_accent;
+            transition: all 0.2s ease-in-out;
+
+            div {
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                color: inherit;
+
+                .span-text {
+                    font-weight: bold;
+                }
+
+                span {
+                    color: $user_accent;
+                    margin: 5px;
+                    transition: all 0.2s ease-in-out;
+
+                }
+            }
+
+            &:hover {
+                background-color: rgba($user_accent, 1);
+                color: $dark_user_accent;
+
+                div {
+                    span {
+                        color: $dark_user_accent;
+                    }
+                }
+            }
+        }
+    }
+
+    .data_row {
+        transition: background-color 0.5s ease;
+
+        a {
+            text-decoration: none;
+            color: $user_accent;
+        }
+    }
+
+    .data_row:hover {
+        background-color: rgba($user_accent, 0.4);
+    }
+
 }

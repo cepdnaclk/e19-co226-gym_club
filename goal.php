@@ -1,5 +1,5 @@
 <?php
-// wo_session.php
+// goal.php
 
 @include 'config.php';
 
@@ -22,104 +22,132 @@ if (isset($_GET['uid'])) {
     exit; // Optional, to stop further execution.
 }
 
-// Form submission handling
-if (isset($_POST['submit'])) {
-    $goal_id = mysqli_real_escape_string($conn, $_POST['goal_id']);
-
-    // Perform validation on the submitted data (e.g., check if the date and duration are valid, etc.)
-
-    // Perform the update query
-    $update_query = "UPDATE target
-                    SET goal_id = '$goal_id'
-                    WHERE UId = '$uid'";
-
-    mysqli_query($conn, $update_query);
-
-    // Redirect after form submission
-    header('location:member_page.php'); // Replace 'index.php' with the appropriate page where you want to redirect after form submission.
-    exit; // Optional, to stop further execution.
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evenly Spread Cards</title>
-  <link rel="stylesheet" href="css/goal_style.css">
-  <!-- <link rel="stylesheet" href="css/style-landing.css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Goal</title>
+
+    <link rel="stylesheet" href="styles/goals_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script>
+        function bindOnClick() {
+            $('#card-carousel').on('click', '.card', function(event) {
+                var goalID = $(this).data('goal-id'); // Get the goal ID from the data attribute
+                var userID = <?php echo $_SESSION["user_id"]; ?>;
+
+                var url = "update_goal.php?user_id=" + userID + "&goal_id=" + goalID;
+
+                $.ajax({
+                    url: url,
+                    method: "GET",
+                    success: function(response) {
+                        window.location.href = "member_page.php#goal_card";
+                    },
+                    error: function(xhr, status, error) {
+                        alert("Error: " + xhr.status + ": " + xhr.statusText);
+                    }
+                });
+            });
+        }
+
+        $(document).ready(function() {
+            bindOnClick();
+        })
+    </script>
 </head>
+
 <body>
-    <header>
-    <h2>Select Your Goal</h2>
-    </header>
+    <div id="body-wrapper">
+        <span id="title">Select your desired goal</span>
+        <div id="card-carousel">
 
-    <section class="container">
-        <div class="card">
-            <div class="card-image  card-1"></div>
-            <h2>Muscle Gain</h2>
-            <p>Sculpt your physique and embrace a new level of strength with our Muscle Gain program. Elevate your weight and strength while enhancing muscle definition. Unlock a new chapter of confidence as you see your hard work and dedication transform your body.</p>
-            <form action="" method="post">
-                <!-- You can use a hidden input field to pass the desired value -->
-                <input type="hidden" name="goal_id" value="1">
-                <input type="submit" name="submit" value="Submit" class="form-btn">
-            </form>
-        </div>
-        <div class="card">
-            <div class="card-image card-2"></div>
-            <h2>Weight Loss</h2>
-            <p>Embark on a transformative journey with our Weight Loss program. Shed those extra pounds, redefine your body's contours, and discover a healthier version of yourself. Embrace a new lifestyle filled with energy, vitality, and the satisfaction of achieving your weight loss goals.</p>
-            <form action="" method="post">
-                <!-- You can use a hidden input field to pass the desired value -->
-                <input type="hidden" name="goal_id" value="2">
-                <input type="submit" name="submit" value="Submit" class="form-btn">
-            </form>
-        </div>
-        <div class="card">
-            <div class="card-image card-3"></div>
-            <h2>Cardiovascular Health</h2>
-            <p>Elevate your heart health and vitality through our Cardiovascular Health program. Improve your endurance, strengthen your heart, and fuel your body with the benefits of cardiovascular exercise. Embrace the path to long-lasting wellness and a thriving heart.</p>
-            <form action="" method="post">
-                <!-- You can use a hidden input field to pass the desired value -->
-                <input type="hidden" name="goal_id" value="3">
-                <input type="submit" name="submit" value="Submit" class="form-btn">
-            </form>
-        </div>
-    </section>
+            <div class="card" data-goal-id="1">
+                <div class="card-img">
+                    <div class="image-container">
+                        <img src="../gym_membership/images/goals/goal_1.jpg" alt="Goal_image">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <h2>Muscle Gain</h2>
+                    <span>Sculpt your physique and embrace a new level of strength with our Muscle Gain program. Elevate your weight and strength while enhancing muscle definition. Unlock a new chapter of confidence as you see your hard work and dedication transform your body.</span>
+                </div>
+            </div>
 
-    <section class="container">
-        <div class="card">
-            <div class="card-image  card-4"></div>
-            <h2>Strength Training</h2>
-            <p>Unleash your inner strength with our Strength Training program. Build a foundation of power, agility, and muscle resilience. Whether you're a novice or a seasoned athlete, this program will empower you to conquer challenges and achieve peak performance.</p>
-            <form action="" method="post">
-                <!-- You can use a hidden input field to pass the desired value -->
-                <input type="hidden" name="goal_id" value="4">
-                <input type="submit" name="submit" value="Submit" class="form-btn">
-            </form>
+            <div class="card" data-goal-id="2">
+                <div class="card-img">
+                    <div class="image-container">
+                        <img src="../gym_membership/images/goals/goal_2.jpg" alt="Goal_image">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <h2>Weight Loss</h2>
+                    <span>Embark on a transformative journey with our Weight Loss program. Shed those extra pounds, redefine your body's contours, and discover a healthier version of yourself. Embrace a new lifestyle filled with energy, vitality, and the satisfaction of achieving your weight loss goals.</span>
+                </div>
+            </div>
+
+            <div class="card" data-goal-id="3">
+                <div class="card-img">
+                    <div class="image-container">
+                        <img src="../gym_membership/images/goals/goal_3.jpg" alt="Goal_image">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <h2>Cardiovascular Health</h2>
+                    <span>Elevate your heart health and vitality through our Cardiovascular Health program. Improve your endurance, strengthen your heart, and fuel your body with the benefits of cardiovascular exercise. Embrace the path to long-lasting wellness and a thriving heart.</span>
+                </div>
+            </div>
+
+            <div class="card" data-goal-id="4">
+                <div class="card-img">
+                    <div class="image-container">
+                        <img src="../gym_membership/images/goals/goal_4.jpg" alt="Goal_image">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <h2>Strength Training</h2>
+                    <span>Unleash your inner strength with our Strength Training program. Build a foundation of power, agility, and muscle resilience. Whether you're a novice or a seasoned athlete, this program will empower you to conquer challenges and achieve peak performance.</span>
+                </div>
+            </div>
+
+            <div class="card" data-goal-id="5">
+                <div class="card-img">
+                    <div class="image-container">
+                        <img src="../gym_membership/images/goals/goal_5.jpg" alt="Goal_image">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <h2>Flexibility and Mobility</h2>
+                    <span>Discover the art of flexibility and mobility with our specialized program. Enhance your body's range of motion, release tension, and improve posture. Unwind and rejuvenate as you unlock newfound flexibility, contributing to your overall well-being.</span>
+                </div>
+            </div>
+
+            <div class="card" data-goal-id="6">
+                <div class="card-img">
+                    <div class="image-container">
+                        <img src="../gym_membership/images/goals/goal_6.jpg" alt="Goal_image">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <h2>Overall Wellness</h2>
+                    <span>Embrace holistic wellness with our comprehensive program designed to elevate every aspect of your life. Maintain your body's harmony, mental clarity, and emotional balance. Reap the rewards of vitality and enjoy a life of well-rounded health.</span>
+                </div>
+            </div>
+
         </div>
-        <div class="card">
-            <div class="card-image card-5"></div>
-            <h2>Flexibility and Mobility</h2>
-            <p>Discover the art of flexibility and mobility with our specialized program. Enhance your body's range of motion, release tension, and improve posture. Unwind and rejuvenate as you unlock newfound flexibility, contributing to your overall well-being.</p>
-            <form action="" method="post">
-                <!-- You can use a hidden input field to pass the desired value -->
-                <input type="hidden" name="goal_id" value="5">
-                <input type="submit" name="submit" value="Submit" class="form-btn">
-            </form>
-        </div>
-        <div class="card">
-            <div class="card-image card-6"></div>
-            <h2>Overall Wellness</h2>
-            <p>Embrace holistic wellness with our comprehensive program designed to elevate every aspect of your life. Maintain your body's harmony, mental clarity, and emotional balance. Reap the rewards of vitality and enjoy a life of well-rounded health.</p>
-            <form action="" method="post">
-                <!-- You can use a hidden input field to pass the desired value -->
-                <input type="hidden" name="goal_id" value="6">
-                <input type="submit" name="submit" value="Submit" class="form-btn">
-            </form>
-        </div>
-    </section>
+    </div>
 
 </body>
+
 </html>

@@ -35,7 +35,6 @@ if (isset($_SESSION['id'])) {
 </head>
 
 <body>
-
   <nav class="navbar">
     <div class="navbar-logo"></div>
     <a id="log-out" href="logout.php">
@@ -52,7 +51,7 @@ if (isset($_SESSION['id'])) {
     </div>
 
   </div>
-  
+
   <div class="UD_sect">
     <div class="user_details">
       <div class="icon">
@@ -81,89 +80,104 @@ if (isset($_SESSION['id'])) {
         <span>Height: <?php echo $height; ?> cm</span>
         <span>Weight: <?php echo $weight; ?> kg</span>
       </div>
-    </div>
-  </div>
-  <a href="update_details.php?uid=<?php echo $_SESSION['user_id']; ?>" class="card-link">Update Details</a>
-
-  <div class="UD_sect">
-    <h2>Current Fitness Goals</h2>
-    <div class="user_details">
-      <div class="icon">
-        <span class="fas fa-user fa-10x"></span>
-      </div>
-      <div class="details">
-        <?php
-        $sql = "SELECT goal_id, goal_type, target_weight, target_bodyfat, target_calories from fitness_goal where goal_id = (SELECT goal_id from target WHERE UId = $_SESSION[user_id])";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-          // Fetch the user details from the result set.
-          $row = $result->fetch_assoc();
-          $goal_type = $row['goal_type'];
-          $target_weight = $row['target_weight'];
-          $target_bodyfat = $row['target_bodyfat'];
-          $target_calories = $row['target_calories'];
-        } else {
-          // Handle the case when user details are not found in the database.
-          // You can display default values or show an error message.
-          $goal_type = "Not yet selected";
-          $target_weight = "Not yet selected";
-          $target_bodyfat = "Not yet selected";
-          $target_calories = "Not yet selected";
-        }
-
-        ?>
-        <p>Goal Type: <?php echo $goal_type; ?></p>
-        <p>Target Weight(Kg): <?php echo $target_weight; ?></p>
-        <p>Target Bodyfat (%): <?php echo $target_bodyfat; ?></p>
-        <p>Target Calories (calories/day): <?php echo $target_calories; ?></p>
-      </div>
-      <div class="btn">
-        <a href="goal.php?uid=<?php echo $_SESSION['user_id']; ?>" class="card-link">Change Goal</a>
-      </div>
+      <a href="update_details.php?uid=<?php echo $_SESSION['user_id']; ?>" class="card-edit-link">
+        <span class="material-symbols-rounded">edit_square</span>
+      </a>
     </div>
   </div>
 
+  <div class="SUB_sect">
+    <h2>Current Fitness Goal</h2>
+    <div id="goal_card">
+      <span id="goal_intro">Here, you can set your fitness goal to tailor your workout routine and track your progress towards achieving a healthier and fitter lifestyle. Click on the card below to get started.</span>
+      <a href="goal.php?uid=<?php echo $_SESSION['user_id']; ?>" class="card-edit-link">
+        <div class="goal_details">
+          <?php
+          $sql = "SELECT goal_id, goal_type, target_weight, target_bodyfat, target_calories from fitness_goal where goal_id = (SELECT goal_id from target WHERE UId = $_SESSION[user_id])";
+          $result = $conn->query($sql);
 
+          if ($result->num_rows > 0) {
+            // Fetch the user details from the result set.
+            $row = $result->fetch_assoc();
+            $goal_id = $row['goal_id'];
+            $goal_type = $row['goal_type'];
+            $target_weight = $row['target_weight'];
+            $target_bodyfat = $row['target_bodyfat'];
+            $target_calories = $row['target_calories'];
 
-  <div class="WO_Sect">
-    <h2>Workout Sessions</h2>
-    <div class="WOS_card">
-      <ul>
-        <li><a href="wo_session.php?uid=<?php echo $_SESSION['user_id']; ?>">Add Workout Sessions</a></li>
-        <div class="workout-table">
-          <table>
-            <tr>
-              <th>Date</th>
-              <th>Burned Calories</th>
-              <th>Duration</th>
-            </tr>
-            <?php
-            $sql = "SELECT SessionId, Date, BurnedCalories, Duration from workout_session where UId = $_SESSION[user_id]";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-              while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                //echo "<td><a href=\"exercise_log.php?id=".$row["SessionId"]."\">".$row["Date"]."</a></td>";
-                echo "<td><a href=\"exercise_log.php?sessionId=" . $row["SessionId"] . "\">" . $row["Date"] . "</a></td>";
-                echo "<td>" . $row["BurnedCalories"] . "</td>";
-                echo "<td>" . $row["Duration"] . "</td>";
-                echo "</tr>";
-              }
-              echo "</table>";
-            } else {
-              echo "0 results";
-            }
-            ?>
-          </table>
+            echo <<<EOL
+            <div class="image-container">
+              <div class="image-wrapper">
+                <img src="../gym_membership/images/goals/goal_{$goal_id}.jpg" alt="Your Image">
+              </div>
+            </div>
+            <div class="details">
+              <span class="s-line-title">{$goal_type}</span>
+              <div class="s-line"><span>Target Weight (in kg):</span><span class="s-line-val">{$target_weight}</span></div>
+              <div class="s-line"><span>Target Bodyfat (as percentage):</span><span class="s-line-val">{$target_bodyfat}</span></div>
+              <div class="s-line"><span>Target Calories (calories per day): </span><span class="s-line-val">{$target_calories}</span></div>
+            </div>
+            EOL;
+          } else {
+            echo <<<EOL
+            <div id="no-goal">
+              <span class="material-symbols-rounded">heart_plus</span>
+              <span>You haven't set a goal yet. Click here to get started!</span>
+            </div>
+            EOL;
+          }
+          ?>
         </div>
-      </ul>
-
+      </a>
     </div>
   </div>
 
 
+
+
+  <div class="SUB_sect">
+    <h2>Workout Sessions</h2>
+    <div class="WOS_sect">
+      <span>Here you can add and edit details about your existing workout sessions. Click on a session date to change any details.</span>
+      <div class="workout-table">
+        <table>
+          <tr>
+            <td colspan="3" class="wos-add">
+              <a href="wo_session.php?uid=<?php echo $_SESSION['user_id']; ?>">
+                <div>
+                  <span class="material-symbols-rounded">forms_add_on</span>
+                  <span class="span-text">Add a workout session</span>
+                </div>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <th>Date</th>
+            <th>Burned Calories</th>
+            <th>Duration</th>
+          </tr>
+          <?php
+          $sql = "SELECT SessionId, Date, BurnedCalories, Duration from workout_session where UId = $_SESSION[user_id] ORDER BY Date DESC";
+          $result = $conn->query($sql);
+
+          if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              echo "<tr class='data_row'>";
+              //echo "<td><a href=\"exercise_log.php?id=".$row["SessionId"]."\">".$row["Date"]."</a></td>";
+              echo "<td><a href=\"exercise_log.php?sessionId=" . $row["SessionId"] . "\">" . $row["Date"] . "</a></td>";
+              echo "<td>" . $row["BurnedCalories"] . "</td>";
+              echo "<td>" . $row["Duration"] . "</td>";
+              echo "</tr>";
+            }
+            echo "</table>";
+          } else {
+            echo "<td colspan='3'>You haven't added any workout sessions yet. Click above to get started!</td>";
+          }
+          ?>
+        </table>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

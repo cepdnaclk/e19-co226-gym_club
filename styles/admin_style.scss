@@ -1,9 +1,14 @@
-@use 'general_user_style' as * with ($user_accent: orange);
+@use 'general_user_style' as * with ($user_accent: rgb(255, 167, 0), $dark_user_accent: rgb(255, 127, 0));
 
 .WO_Sect {
 
+    .WOS_card{
+        padding: 5px;
+    }
+
     h2 {
         color: $text-light;
+        margin-top: 0 !important;
     }
 
     span {
@@ -23,7 +28,7 @@
         box-shadow: 0 0 0 1px white;
         overflow: hidden;
         table-layout: fixed;
-        margin-top: 10px;
+        margin-top: 20px;
         width: 100%;
         background-image: linear-gradient(to right, rgb(78, 78, 78), $background);
 

@@ -1,5 +1,21 @@
 @import url("https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+/* Track */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: rgb(30, 30, 30);
@@ -21,6 +37,7 @@ a {
   padding: 10px 0;
   align-items: center;
   box-shadow: 0 0 10px;
+  z-index: 888;
 }
 .navbar .navbar-logo {
   flex: 1;
@@ -68,13 +85,13 @@ a {
   font-size: 30px;
 }
 .banner h3 .user_type {
-  background: orange;
+  background: rgb(255, 167, 0);
   color: rgb(30, 30, 30);
   border-radius: 5px;
   padding: 5px 15px;
 }
 .banner h3 .user_name {
-  color: orange;
+  color: rgb(255, 167, 0);
 }
 
 .UD_sect {
@@ -92,9 +109,10 @@ a {
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 .user_details .icon {
-  background-color: orange;
+  background-color: rgb(255, 167, 0);
   justify-content: center;
   align-items: center;
   border-radius: 100px;
@@ -118,6 +136,15 @@ a {
 }
 .user_details .details span {
   margin: 5px;
+}
+.user_details .card-edit-link {
+  position: absolute;
+  right: 3%;
+  bottom: 5%;
+  color: rgb(255, 127, 0);
+}
+.user_details .card-edit-link span {
+  font-size: 28px;
 }
 
 .ui-widget {
@@ -155,18 +182,18 @@ a {
 }
 .ui-dialog button {
   border: 1px solid white;
-  background: darkorange !important;
+  background: rgb(255, 127, 0) !important;
   color: black;
   cursor: pointer;
   font-weight: bold !important;
 }
 .ui-dialog button:hover {
-  background: orange !important;
+  background: rgb(255, 167, 0) !important;
 }
 
 .ui-widget-header {
   color: white;
-  background: rgba(255, 165, 0, 0.5);
+  background: rgba(255, 167, 0, 0.5);
   border: 0;
 }
 
@@ -182,8 +209,26 @@ a {
   z-index: 999;
 }
 
+.SUB_sect {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 127, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.WO_Sect .WOS_card {
+  padding: 5px;
+}
 .WO_Sect h2 {
   color: white;
+  margin-top: 0 !important;
 }
 .WO_Sect span {
   color: white;
@@ -200,7 +245,7 @@ a {
   box-shadow: 0 0 0 1px white;
   overflow: hidden;
   table-layout: fixed;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
   background-image: linear-gradient(to right, rgb(78, 78, 78), rgb(30, 30, 30));
 }

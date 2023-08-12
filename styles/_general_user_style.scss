@@ -8,6 +8,22 @@ $text-light: white;
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+/* Track */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: $background;
@@ -29,6 +45,7 @@ a {
     padding: 10px 0;
     align-items: center;
     box-shadow: 0 0 10px;
+    z-index: 888;
 
     .navbar-logo {
         flex: 1;
@@ -107,6 +124,7 @@ a {
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
 
     .icon {
         background-color: $user_accent;
@@ -138,6 +156,17 @@ a {
             margin: 5px;
         }
     }
+
+    .card-edit-link {
+        position: absolute;
+        right: 3%;
+        bottom: 5%;
+        color: $dark_user_accent;
+
+        span {
+            font-size: 28px;
+        }
+    }
 }
 
 .ui-widget {
@@ -158,7 +187,7 @@ a {
         margin: 5px;
         margin-bottom: 0px !important;
 
-        .ui-dialog-titlebar-close{
+        .ui-dialog-titlebar-close {
             display: none;
         }
     }
@@ -184,7 +213,7 @@ a {
         cursor: pointer;
         font-weight: bold !important;
 
-        &:hover{
+        &:hover {
             background: $user_accent !important;
         }
     }
@@ -192,7 +221,7 @@ a {
 
 .ui-widget-header {
     color: white;
-    background: rgba($user_accent,0.5);
+    background: rgba($user_accent, 0.5);
     border: 0;
 }
 
@@ -206,4 +235,18 @@ a {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     z-index: 999;
+}
+
+.SUB_sect {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgba($dark_user_accent,0.2);
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
