@@ -1,0 +1,164 @@
+@use 'general_user_style' as * with ($user_accent: rgb(147, 160, 237), $dark_user_accent:  rgb(61, 82, 223));
+$background_color: rgb(61, 61, 61);
+
+* {
+  box-sizing: border-box;
+  border: none;
+}
+
+body {
+  background-color: $background_color;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  .content {
+    text-align: center;
+
+    h3 {
+      font-size: 30px;
+      color: $background_color;
+
+      span {
+        background: $user_accent;
+        color: $background_color;
+        border-radius: 5px;
+        padding: 0 15px;
+      }
+    }
+
+    h1 {
+      font-size: 50px;
+      color: $background_color;
+
+      span {
+        color: $user_accent;
+      }
+    }
+
+    p {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 30px;
+      font-size: 20px;
+      background: #333;
+      color: rgb(61, 61, 61);
+      margin: 0 5px;
+      text-transform: capitalize;
+
+      &:hover {
+        background: $user_accent;
+      }
+    }
+  }
+}
+
+.form-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+
+  form {
+    text-align: center;
+
+    span{
+      color: $user_accent;
+    }
+
+    .btn-holder{
+      display: flex;
+      flex-direction: row;
+      padding: 10px;
+    }
+
+    h3 {
+      font-size: 30px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: $user_accent;
+    }
+
+    .input-text {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 17px;
+      margin: 8px 0;
+      background: white;
+      border-radius: 5px;
+    }
+
+    select option {
+      background: $background_color;
+    }
+
+    .btn {
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-left: 20px;
+      margin-right: 20px;
+      width: 100%;
+
+      background: $dark_user_accent;
+      color: $user_accent;
+      text-transform: capitalize;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: $user_accent;
+        color: $dark_user_accent;
+      }
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 20px;
+      color: $background_color;
+
+      a {
+        color: $user_accent;
+      }
+    }
+
+    .error-msg {
+      margin: 10px 0;
+      display: block;
+      background: $user_accent;
+      color: $background_color;
+      border-radius: 5px;
+      font-size: 20px;
+      padding: 10px;
+    }
+  }
+}
+
+.input-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.row {
+  margin-bottom: 0;
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

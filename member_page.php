@@ -32,6 +32,58 @@ if (isset($_SESSION['id'])) {
 
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
+  <script>
+    function updateDetails() {
+      var userId = <?php echo $_SESSION["user_id"]; ?>;
+      var dataToSend = {
+        user_id: userId
+      };
+
+      $.ajax({
+        url: "fetch_details.php",
+        method: "POST",
+        data: dataToSend,
+        success: function(response) {
+          $("#details-text").html(response);
+        },
+        error: function(xhr, status, error) {
+          alert("Error: " + xhr.status + ": " + xhr.statusText);
+        }
+      });
+    }
+
+    $(document).ready(function() {
+
+      $(".card-edit-link").click(function() {
+        var iframe = $("#udframe");
+        var src = iframe.attr("src");
+        iframe.attr("src", src);
+        $("#update-details-frame").fadeIn();
+      })
+
+      $("#udframe").on("load", function() {
+        var udframe = $("#udframe").contents();
+        var cancelbtn = udframe.find("#cancel-btn");
+
+        cancelbtn.click(function() {
+          updateDetails();
+          $("#update-details-frame").fadeOut(function() {
+            $("#update-details-frame").hide();
+          });
+        });
+
+        // Check if the iframe content has exited
+        if (udframe.find("body").text().trim() === "") {
+          // console.log("Iframe content has exited.");
+          updateDetails();
+          $("#update-details-frame").fadeOut(function() {
+            $("#update-details-frame").hide();
+          });
+        }
+      });
+    });
+  </script>
+
 </head>
 
 <body>
@@ -58,29 +110,32 @@ if (isset($_SESSION['id'])) {
         <span class="material-symbols-rounded">Account_circle</span>
       </div>
       <div class="details">
-        <?php
-        $sql = "SELECT age, gender, height, weight from user_form where id = $_SESSION[user_id]";
-        $result = $conn->query($sql);
+        <div id="details-text">
+          <?php
+          $sql = "SELECT age, gender, height, weight from user_form where id = $_SESSION[user_id]";
+          $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-          // Fetch the user details from the result set.
-          $row = $result->fetch_assoc();
-          $age = $row['age'];
-          $gender = $row['gender'];
-          $height = $row['height'];
-          $weight = $row['weight'];
-        } else {
-          // Handle the case when user details are not found in the database.
-        }
+          if ($result->num_rows > 0) {
+            // Fetch the user details from the result set.
+            $row = $result->fetch_assoc();
+            $age = $row['age'];
+            $gender = $row['gender'];
+            $height = $row['height'];
+            $weight = $row['weight'];
+          } else {
+            // Handle the case when user details are not found in the database.
+          }
 
-        ?>
-        <span>Membership ID: <?php echo $_SESSION['user_id'] ?></span>
-        <span>Age: <?php echo $age; ?></span>
-        <span>Gender: <?php echo $gender; ?></span>
-        <span>Height: <?php echo $height; ?> cm</span>
-        <span>Weight: <?php echo $weight; ?> kg</span>
+          ?>
+          <span>Membership ID: <?php echo $_SESSION['user_id'] ?></span>
+          <span>Age: <?php echo $age; ?></span>
+          <span>Gender: <?php echo $gender; ?></span>
+          <span>Height: <?php echo $height; ?> cm</span>
+          <span>Weight: <?php echo $weight; ?> kg</span>
+        </div>
       </div>
-      <a href="update_details.php?uid=<?php echo $_SESSION['user_id']; ?>" class="card-edit-link">
+
+      <a href="#" class="card-edit-link">
         <span class="material-symbols-rounded">edit_square</span>
       </a>
     </div>
@@ -178,6 +233,13 @@ if (isset($_SESSION['id'])) {
       </div>
     </div>
   </div>
+
+  <div id="update-details-frame" style="display: none;">
+    <div class="frame-container">
+      <iframe id="udframe" src="update_details.php?uid=<?php echo $_SESSION['user_id']; ?>"></iframe>
+    </div>
+  </div>
+
 </body>
 
 </html>
