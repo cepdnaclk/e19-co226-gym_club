@@ -1,5 +1,6 @@
 @import url("https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("./Material_Symbols_Rounded.scss");
 /* Track */
 ::-webkit-scrollbar {
   width: 4px;
@@ -234,75 +235,45 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-}
-
-.container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
-}
-.container .content {
-  text-align: center;
-}
-.container .content h3 {
-  font-size: 30px;
-  color: rgb(61, 61, 61);
-}
-.container .content h3 span {
-  background: rgb(147, 160, 237);
-  color: rgb(61, 61, 61);
-  border-radius: 5px;
-  padding: 0 15px;
-}
-.container .content h1 {
-  font-size: 50px;
-  color: rgb(61, 61, 61);
-}
-.container .content h1 span {
-  color: rgb(147, 160, 237);
-}
-.container .content p {
-  font-size: 25px;
-  margin-bottom: 20px;
-}
-.container .content .btn {
-  display: inline-block;
-  padding: 10px 30px;
-  font-size: 20px;
-  background: #333;
-  color: rgb(61, 61, 61);
-  margin: 0 5px;
-  text-transform: capitalize;
-}
-.container .content .btn:hover {
-  background: rgb(147, 160, 237);
+  align-items: center;
 }
 
 .form-container {
   height: 100%;
   width: 100%;
+  padding: 10px;
+}
+.form-container form {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.form-container form .text-input-holder {
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   padding: 20px;
 }
-.form-container form {
-  text-align: center;
-}
 .form-container form span {
   color: rgb(147, 160, 237);
+  text-align: left;
 }
 .form-container form .btn-holder {
   display: flex;
   flex-direction: row;
   padding: 10px;
 }
-.form-container form h3 {
-  font-size: 30px;
-  text-transform: uppercase;
+.form-container form .title {
+  font-size: 20px;
+  color: white;
+  background-color: rgba(147, 160, 237, 0.6);
+  padding: 15px;
+  border-radius: 15px;
   margin-bottom: 10px;
-  color: rgb(147, 160, 237);
+  font-weight: bold;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 .form-container form .input-text {
   width: 100%;
@@ -315,16 +286,21 @@ body {
 .form-container form select option {
   background: rgb(61, 61, 61);
 }
+.form-container form .btn-holder {
+  border-top: 1px solid rgba(147, 160, 237, 0.5);
+}
 .form-container form .btn {
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
   width: 100%;
+  border: 1px solid rgba(147, 160, 237, 0.5);
   background: rgb(61, 82, 223);
-  color: rgb(147, 160, 237);
-  text-transform: capitalize;
+  color: white;
   font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -348,19 +324,4 @@ body {
   border-radius: 5px;
   font-size: 20px;
   padding: 10px;
-}
-
-.input-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.row {
-  margin-bottom: 0;
-}
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
 }/*# sourceMappingURL=iframe_style.css.map */

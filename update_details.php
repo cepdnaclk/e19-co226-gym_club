@@ -25,9 +25,9 @@ if (isset($_GET['uid'])) {
       $dage = $row['age'];
       $dheight = $row['height'];
       $dweight = $row['weight'];
-  } else {
+   } else {
       // Handle the case when user details are not found in the database.
-  }
+   }
 } else {
    // Handle the case when the Uid is not provided in the URL. You might redirect the user or show an error message.
    // Example:
@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
    <div class="form-container">
 
       <form action="" method="post">
-         <h3>Update Your Details</h3>
+         <span class="title">Update Your Details</span>
          <?php
          if (isset($error)) {
             foreach ($error as $error) {
@@ -82,12 +82,14 @@ if (isset($_POST['submit'])) {
             };
          };
          echo <<<EOL
-         <span>Age</span>
-         <input class="input-text" id="t-age" type="text" name="age" required placeholder="Age" value={$dage}>
-         <span>Height</span>
-         <input class="input-text" id="t-height" type="text" name="height" required placeholder="Height" value={$dheight}>
-         <span>Weight</span>
-         <input class="input-text" id="t-weight" type="text" name="weight" required placeholder="Weight" value={$dweight}>
+         <div class="text-input-holder">
+            <span>Age</span>
+            <input class="input-text" id="t-age" type="text" name="age" required placeholder="Age" value={$dage}>
+            <span>Height</span>
+            <input class="input-text" id="t-height" type="text" name="height" required placeholder="Height" value={$dheight}>
+            <span>Weight</span>
+            <input class="input-text" id="t-weight" type="text" name="weight" required placeholder="Weight" value={$dweight}>
+         </div>
          EOL;
          ?>
          <div class="btn-holder">

@@ -1,5 +1,6 @@
 @import url("https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("./Material_Symbols_Rounded.scss");
 /* Track */
 ::-webkit-scrollbar {
   width: 4px;
@@ -446,8 +447,12 @@ a {
 }
 #update-details-frame .frame-container #udframe {
   height: 430px;
-  width: 400px;
+  width: 380px;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
+  border: 1px solid rgb(147, 160, 237);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=member_style.css.map */

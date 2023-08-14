@@ -38,7 +38,7 @@ if (isset($_SESSION['user_type'])) {
 
   <link rel="stylesheet" href="styles/admin_style.css">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
@@ -210,31 +210,37 @@ if (isset($_SESSION['user_type'])) {
         <span class="material-symbols-rounded">Account_circle</span>
       </div>
       <div class="details">
-        <?php
-        $sql = "SELECT age, gender, height, weight from user_form where id = $_SESSION[user_id]";
-        $result = $conn->query($sql);
+        <div id="details-text">
+          <?php
+          $sql = "SELECT age, gender, height, weight from user_form where id = $_SESSION[user_id]";
+          $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-          // Fetch the user details from the result set.
-          $row = $result->fetch_assoc();
-          $age = $row['age'];
-          $gender = $row['gender'];
-          $height = $row['height'];
-          $weight = $row['weight'];
-        } else {
-          // Handle the case when user details are not found in the database.
-        }
+          if ($result->num_rows > 0) {
+            // Fetch the user details from the result set.
+            $row = $result->fetch_assoc();
+            $age = $row['age'];
+            $gender = $row['gender'];
+            $height = $row['height'];
+            $weight = $row['weight'];
+          } else {
+            // Handle the case when user details are not found in the database.
+          }
 
-        ?>
-        <span>Membership ID: <?php echo $_SESSION['user_id'] ?></span>
-        <span>Age: <?php echo $age; ?></span>
-        <span>Gender: <?php echo $gender; ?></span>
-        <span>Height: <?php echo $height; ?> cm</span>
-        <span>Weight: <?php echo $weight; ?> kg</span>
+          ?>
+          <span>Membership ID: <?php echo $_SESSION['user_id'] ?></span>
+          <span>Age: <?php echo $age; ?></span>
+          <span>Gender: <?php echo $gender; ?></span>
+          <span>Height: <?php echo $height; ?> cm</span>
+          <span>Weight: <?php echo $weight; ?> kg</span>
+        </div>
       </div>
+
+      <a href="#" class="card-edit-link">
+        <span class="material-symbols-rounded">edit_square</span>
+      </a>
     </div>
   </div>
-  
+
 
   <div class="SUB_sect">
     <div class="WO_Sect">
@@ -247,7 +253,7 @@ if (isset($_SESSION['user_type'])) {
       </div>
     </div>
   </div>
-  
+
   <div class="SUB_sect">
     <div class="WO_Sect">
       <h2>Avaliable Trainees</h2>
