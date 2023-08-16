@@ -1,5 +1,6 @@
 @import url("./jquery-ui.css");
 @import url("../fonts/roboto-regular/fonts.css");
+@import url("../fonts/poppins/style.css");
 @import url("./Material_Symbols_Rounded.scss");
 /* Track */
 ::-webkit-scrollbar {
@@ -444,7 +445,7 @@ a {
   position: relative;
 }
 #update-details-frame .frame-container #udframe {
-  height: 430px;
+  height: 450px;
   width: 380px;
   border: none;
   border-radius: 20px;
