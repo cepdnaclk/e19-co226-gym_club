@@ -33,7 +33,7 @@ if (isset($_GET['uid'])) {
     <title>Workout Goal</title>
 
     <link rel="stylesheet" href="styles/goals_style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
 
     <script>
         function bindOnClick() {

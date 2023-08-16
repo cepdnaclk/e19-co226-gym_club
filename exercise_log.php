@@ -51,11 +51,12 @@ if (isset($_POST['submit'])) {
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>register form</title>
-
+   
+   <link rel="stylesheet" href="styles/ex_log_style.css">
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style-exlog.css">
+   <!-- <link rel="stylesheet" href="css/style-exlog.css">
    <link rel="stylesheet" href="css/table-style.css">
-   <link rel="stylesheet" href="css/back-button.css">
+   <link rel="stylesheet" href="css/back-button.css"> -->
 
 </head>
 <body>
@@ -85,18 +86,9 @@ if (isset($_POST['submit'])) {
 <!-- <div class="btn">
    <a href="member_page.php?sessionId=<?php echo $sessionId; ?>" class="form-btn">Back</a>
 </div> -->
-<div class="containar">
-   <a href="member_page.php?sessionId=<?php echo $sessionId; ?>" class="form-btn btn">Back</a>
+<div class="container">
+   <a href="member_page.php?sessionId=<?php echo $sessionId; ?>" class="back-btn">Back</a>
 </div>
-
-<!-- <div class="form-container">
-
-   <form action="" method="post">
-      <input type="submit" name="submit" value="Submit" class="form-btn">
-   </form>
-
-</div> -->
-
 
 <div class="workout-table">
       <table>
@@ -120,10 +112,13 @@ if (isset($_POST['submit'])) {
             echo "<td>".$row["reps"]."</td>";
             echo "</tr>";
           }
-          echo "</table>";
         }
         else{
-          echo "0 results";
+          echo <<<EOL
+            <tr>
+               <td colspan='4' class='wos-add'>No excercise logs added yet.</td>
+            </tr>
+          EOL;
         }
         ?>
       </table>

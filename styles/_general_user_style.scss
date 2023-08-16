@@ -4,9 +4,9 @@ $background: rgb(30, 30, 30);
 $text-dark: black;
 $text-light: white;
 
-@import url("https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css");
+@import url("./jquery-ui.css");
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('../fonts/roboto-regular/fonts.css');
 
 @import url('./Material_Symbols_Rounded.scss');
 
