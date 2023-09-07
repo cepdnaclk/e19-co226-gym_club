@@ -49,7 +49,7 @@ The Gym Membership Management System is a robust and user-friendly software solu
 
 ## Links
 
-- [Project Repository](https://github.com/Dineth-Udugamasooriya/gym_membership.git)
+- [Project Repository](https://github.com/Dineth-Udugamasooriya/gym_membership)
 - [Project Page](https://dineth-udugamasooriya.github.io/gym_membership/)
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
