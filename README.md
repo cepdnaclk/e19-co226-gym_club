@@ -49,8 +49,8 @@ The Gym Membership Management System is a robust and user-friendly software solu
 
 ## Links
 
-- [Project Repository](https://github.com/cepdnaclk/e19-co225-Baby-Developement-Tracking-System-Mobileapplication)
-- [Project Page](https://cepdnaclk.github.io/e19-co225-Baby-Developement-Tracking-System-Mobileapplication/)
+- [Project Repository](https://github.com/Dineth-Udugamasooriya/gym_membership.git)
+- [Project Page](https://dineth-udugamasooriya.github.io/gym_membership/)
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 
