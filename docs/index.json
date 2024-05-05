@@ -1,0 +1,31 @@
+{
+    "title": "Gym Club",
+    "team": [
+    {
+        "name": "C.O. Colomboge",
+        "email": "e19057@eng.pdn.ac.lk",
+        "eNumber": "E/19/057"
+    },
+    {
+        "name": "D.P. Udugamasooriya",
+        "email": "e19409@eng.pdn.ac.lk",
+        "eNumber": "E/19/409"
+    },
+    {
+        "name": "W.V. Yashan",
+        "email": "e19455@eng.pdn.ac.lk",
+        "eNumber": "E/19/455"
+    }
+    ],
+    "supervisors": [
+    {
+        "name": "Dr. Supervisor 1",
+        "email": "email@eng.pdn.ac.lk"
+    },
+    {
+        "name": "Supervisor 2",
+        "email": "email@eng.pdn.ac.lk"
+    }
+    ],
+    "tags": ["Web", "Databases"]
+}
